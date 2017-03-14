@@ -301,9 +301,9 @@ $(function() {
 		    });
 	   if(theArray.length<1){
 		   alert("请至少选择一个"); 
-	   }else{
+	   }/*else{
 		   alert(theArray);
-	   }
+	   }*/
 		 
 	   });
    $(document).delegate('.upOrderStatus','click',function() {
@@ -328,3 +328,4 @@ $(function() {
 //		   table.column(1).search(state, false, false).draw();
 	   });
 });
+$('#btnsubmit').submit();

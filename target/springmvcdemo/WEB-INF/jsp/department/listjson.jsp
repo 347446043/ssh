@@ -122,7 +122,7 @@ div.dataTables_paginate {
                             data-dismiss="modal" aria-hidden="true">
                         &times;
                     </button>
-                    <h4 class="modal-title" id="myModalLabel">
+                    <h4 class="modal-title" id="myModalLabel2">
                         提示信息
                     </h4>
                 </div>
@@ -192,7 +192,7 @@ div.dataTables_paginate {
                                 新 增
                             </h4>
                         </div>
-                        <form class="form-horizontal" role="form" action="/category_add" method="post"  id="category_add">
+                        <form class="form-horizontal" role="form" action="${pageContext.request.contextPath}/department/save.do" method="post"  id="category_add">
                             <div class="modal-body">
                             <%-- 
                                 <div class="form-group">
@@ -210,7 +210,7 @@ div.dataTables_paginate {
                                     <label class="col-sm-3 control-label no-padding-right" >部门名称： </label>
 
                                     <div class="col-sm-9">
-                                        <input type="text"  class="form-control" id="typename"  name="name" style="width: 250px" maxlength="15" placeholder="10个汉字以内" />
+                                        <input type="text"  class="form-control" id="typename"  name="deptname" style="width: 250px" maxlength="15" placeholder="10个汉字以内" />
 
                                     </div>
                                 </div>
@@ -220,7 +220,7 @@ div.dataTables_paginate {
                                     <label class="col-sm-3 control-label no-padding-right" >备注： </label>
 
                                     <div class="col-sm-9">
-                                        <input type="text"   class=" sortNumber form-control"  name="sortNumber" id="sortNumber" style="width: 250px" maxlength="3"/>
+                                        <input type="text"   class=" sortNumber form-control"  name="remark" id="sortNumber" style="width: 250px" maxlength="3"/>
                                     </div>
                                 </div>
                    
@@ -230,13 +230,13 @@ div.dataTables_paginate {
                                     <div class="control-group">
                                         <div class="radio col-sm-3" style="float: left">
                                             <label>
-                                                <input  type="radio" class=" yn1" name="isYn"  value="1"  checked/>
+                                                <input  type="radio" class=" yn1" name="state"  value="1"  checked/>
                                                 <span class="lbl">有效</span>
                                             </label>
                                         </div>
                                         <div class="radio col-sm-3" style="float: left">
                                             <label>
-                                                <input  type="radio" class=" yn1" name="isYn"  value="0"/>
+                                                <input  type="radio" class=" yn1" name="state"  value="2"/>
                                                 <span class="lbl">无效</span>
                                             </label>
                                         </div>
@@ -247,7 +247,7 @@ div.dataTables_paginate {
                                 <button type="button" class="btn btn-default"
                                         data-dismiss="modal">关闭
                                 </button>
-                                <button type="button" class="btn btn-primary" id="btnsubmit">
+                                <button type="submit" class="btn btn-primary" id="btnsubmit">
                                     提交
                                 </button>
                             </div>

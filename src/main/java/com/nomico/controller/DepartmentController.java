@@ -109,17 +109,17 @@ public class DepartmentController implements Serializable{
 	  //  map.put("pageDisplayLength", Integer.valueOf(v.getLength()));
 		return map;
 	}
-	@RequestMapping("department/addjsp")
+/*	@RequestMapping("department/addjsp")
 	public ModelAndView addjsp(){
 		ModelAndView model=new ModelAndView();
 		
-		model.addObject("mainPage", "department/save.jsp");
+		model.addObject("mainPage", "WEB-INF/jsp/department/save.jsp");
 		model.addObject("modeName", "添加部门");
 		model.setViewName("main");
-		
+
 		
 		return model;
-	}
+	}*/
 	@RequestMapping("department/editdep")
 	public ModelAndView editjsp(HttpServletRequest request){
 		ModelAndView model=new ModelAndView();
@@ -152,7 +152,7 @@ public class DepartmentController implements Serializable{
 			System.out.println("插入失败");
 		}
 		
-	return "redirect:/department/list.do";	
+	return "redirect:/user/listjson1.do";
 	}
 	
 	
@@ -160,7 +160,7 @@ public class DepartmentController implements Serializable{
 	
 	@RequestMapping("department/updatedep")
 	public String updatedep(Department dep,HttpServletRequest request){
-	//	dep.setId(GetUuid.getUUID());
+		dep.setId(GetUuid.getUUID());
 		dep.setCreatetime(new Date());
 		dep.setCreateip(GetIp.getIpAddr(request));
 		try {
@@ -181,8 +181,10 @@ public class DepartmentController implements Serializable{
 		dep.setOvertime(new Date());
 		dep.setState(2);
 		dep.setOverip(GetIp.getIpAddr(request));
+		String depId=dep.getId();
 		try {
-			departmentService.updateByPrimaryKeySelective(dep);
+			//departmentService.updateByPrimaryKeySelective(dep);
+			departmentService.deleteByPrimaryKey(depId);
 			map.put("code",1);
 		} catch (Exception e) {
 			System.out.println("删除失败");
